@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
@@ -15,19 +16,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        sourceSets {
-            main {
-                java.srcDirs = ['src/main/java', 'src/main/java-gen']
-            }
+        greendao {
+            targetGenDir 'src/main/java'
         }
     }
 
 }
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
-    /*greenDao框架*/
-    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao:3.0.1'
 }
